@@ -44,16 +44,12 @@ const List = mongoose.model("List", listSchema);
 
 
 app.get("/", function (req, res) {
-  console.log("Reached def route");
   Item.find({}, function (err, foundItems) {
 
     if (foundItems.length === 0) {
       Item.insertMany(defaultItems, function (err) {
         if (err) {
-          console.log(err);
-        } else {
-          console.log("Successfully saved default items to DB.");
-        }
+        } 
       });
       res.redirect("/");
     } else {
@@ -120,7 +116,6 @@ app.post("/delete", function (req, res) {
   if (listName === "Today") {
     Item.findByIdAndRemove(checkedItemId, function (err) {
       if (!err) {
-        console.log("Successfully deleted checked item.");
         res.redirect("/")
       }
     });
@@ -144,6 +139,4 @@ if(port == null || port == ""){
   port = 4000
 }
 
-app.listen(port, function () {
-  console.log("Server started on port 4000");
-})
+app.listen(port)
