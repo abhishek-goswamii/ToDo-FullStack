@@ -1,5 +1,3 @@
-
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -49,7 +47,7 @@ app.get("/", function (req, res) {
     if (foundItems.length === 0) {
       Item.insertMany(defaultItems, function (err) {
         if (err) {
-        } 
+        }
       });
       res.redirect("/");
     } else {
@@ -99,12 +97,12 @@ app.post("/", function (req, res) {
     res.redirect("/")
 
   } else {
-      
+
     List.findOne({ name: listName }, function (err, foundList) {
       foundList.items.push(item)
       foundList.save();
       res.redirect("/" + listName)
-    
+
     });
   }
 });
@@ -132,11 +130,16 @@ app.post("/delete", function (req, res) {
 
 app.get("/about", function (req, res) {
   res.render("about")
-});
+})
+
+app.post("/cl", (req, res) => {
+  const t = req.body.ln
+  res.redirect("/" + t)
+})
 
 let port = process.env.PORT
-if(port == null || port == ""){
-  port = 4000
+if (port == null || port == "") {
+  port = 3000
 }
 
 app.listen(port)

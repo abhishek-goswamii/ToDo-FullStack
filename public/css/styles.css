@@ -94,3 +94,35 @@ footer {
   color: rgba(0, 0, 0, 0.5);
   text-align: center;
 }
+
+
+#cl-div{
+  margin-top: 40px;
+  position: absolute;
+  left: 50px;
+  top: 10px;
+}
+
+#cl-div button{
+  background-color:white !important;
+  border-radius: 10% !important;
+  font-size: 15px ;
+  color: rgb(46, 46, 46) !important;
+  text-align: center;
+  height: 50px !important;
+  width: 80px !important;
+  
+}
+#cl-div button:hover{
+  background-color: rgb(201, 201, 201) !important;
+}
+
+#cl-div input , #cl-div button{
+  font-size: 15px;
+  border-radius: 10px;
+  padding: 0px !important;
+  background-color:white !important;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  width: 200px;
+  height: 50px !important;
+}
